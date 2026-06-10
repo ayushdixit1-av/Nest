@@ -95,10 +95,10 @@ jobs:
       - name: Generate SBOM for frontend image
         run: make sbom-frontend-image FRONTEND_IMAGE_NAME="$FRONTEND_IMAGE"
 
-      - name: Upload SBOM as artifact
+      - name: Upload unsigned SBOM as artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
         with:
-          name: sbom-${{ env.RELEASE_VERSION }}
+          name: sbom-${{ env.RELEASE_VERSION }}-unsigned
           path: |
             backend-sbom-${{ env.RELEASE_VERSION }}.cdx.json
             frontend-sbom-${{ env.RELEASE_VERSION }}.cdx.json

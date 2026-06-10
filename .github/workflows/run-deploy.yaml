@@ -127,8 +127,8 @@ jobs:
 
       - name: Verify release image signatures
         run: |
-          cosign verify "$BACKEND_IMAGE"
-          cosign verify "$FRONTEND_IMAGE"
+          bash .github/scripts/cosign-image-by-digest.sh verify "$BACKEND_IMAGE"
+          bash .github/scripts/cosign-image-by-digest.sh verify "$FRONTEND_IMAGE"
 
       - name: Apply infrastructure changes
         uses: ./.github/actions/apply-infrastructure-changes
