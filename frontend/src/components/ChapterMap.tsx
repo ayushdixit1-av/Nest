@@ -158,8 +158,6 @@ const ChapterMap = ({
 
     setIsMapActive(false)
   }
-
-
   const validGeoLocData = useMemo(() => {
     return geoLocData.filter((chapter) => {
       const lat = chapter._geoloc?.lat ?? chapter.geoLocation?.lat
